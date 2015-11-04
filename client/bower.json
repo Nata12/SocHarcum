@@ -1,0 +1,19 @@
+{
+  "name": "SocHarcum",
+  "homepage": "https://github.com/Nata12/SocHarcum",
+  "authors": [
+    "Nata <Nata12.06@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular-route": "~1.4.7"
+  },
+  "devDependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "jquery": "jQuery#~2.1.4"
+  }
+}

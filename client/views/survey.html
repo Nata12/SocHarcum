@@ -1,0 +1,13 @@
+<div id="survey" class="col-md-12">
+    <div class="main" >
+        <h2>Lecturers</h2>
+        <div id="Lecturers"  ng-repeat="lecturer in lecturersData.data">
+            <div class="day row" id="lecturer.LName">
+                <div class="low col-md-12 " >
+                    <lecturer-questions lecturer="lecturer"></lecturer-questions>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-lg btn-primary " value="Test1" ng-click="ClickMe()">
+    </div>
+</div>
