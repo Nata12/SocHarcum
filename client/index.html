@@ -16,12 +16,12 @@
 <div id="login" class="col-sm-6 col-md-4 col-md-offset-4">
     <div class="panel panel-default" ></div>
     <span class="style1"><strong><h2>Ուսանողների կողմից
-    դասախոսների գնահատման սոցիոլոգիական հարցում</h2></strong></span>
+        դասախոսների գնահատման սոցիոլոգիական հարցում</h2></strong></span>
     <br />
 
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Ծածկագիր" autofocus />
-     </div>
+    </div>
     <input type="submit" id="submitButton"class="btn btn-lg btn-primary btn-block" value="Մուտք">
 </div>
 
@@ -32,14 +32,13 @@
         <div id="Lecturers"  ng-repeat="lecturer in lecturersData.data">
             <div class="day row" id="lecturer.LName">
                 <div class="low col-md-12 " >
-                    <marks-list lecturer="lecturer"></marks-list>
+                    <lecturer-questions lecturer="lecturer"></lecturer-questions>
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-lg btn-primary " value="Test1" ng-click="clickme()">
+        <input type="submit" class="btn btn-lg btn-primary " value="Test1" ng-click="ClickMe()">
     </div>
 </div>
-
 
 
 <!-- Module
@@ -55,6 +54,7 @@ s -->
 
 <!-- Directives -->
 <script src="js/directives/marksList.js"></script>
+<script src="js/directives/lecturerQuestions.js"></script>
 
 <!-- Constants -->
 <script src="js/constants/templateurl.js"></script>

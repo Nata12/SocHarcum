@@ -6,6 +6,6 @@
  */
 app.service('LecturersSvc', ['$http', function($http) {
     this.getLecturersData = function(){
-        return $http.get('http://localhost/WebServiceSOAP/select.php');
+        return $http.get('http://localhost/SocHarcum/server/select.php');
     };
 }]);

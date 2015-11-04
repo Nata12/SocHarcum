@@ -2,21 +2,27 @@
 /* include db.config.php */
 include_once('db_Connection.php');
 
-// Get user id
-$id = isset($_GET['id']) ? mysql_real_escape_string($_GET['id']) :"";
 
+
+
+$selectQuest=sqlsrv_query($conn,"Select *,0 as mark from SocHarcumOnline.dbo.Questions where  SocHarcumOnline.dbo.Questions.Acadyear='15' and QuestionLecturer ='1' ");
+$resultQuest = array();
+while($dataQuest = sqlsrv_fetch_object($selectQuest)) {
+
+$resultQuest[] = $dataQuest;
+}
 
 
 //$select = sqlsrv_query($conn,'SELECT top 10 LecturerName COLLATE Cyrillic_General_CI_AI as LName FROM Lecturer');
 
-$select=sqlsrv_query($conn,"Select Lecturer.lecturerid,LecturerSurname+' '+LecturerName+' '+LecturerlastName as LName, SocHarcumSchedule.SubjectID ,newSubjectName as SubjectName, SocScheduleWithGroups.ScheduleWithGroupsId,SocHarcumSchedule.ExamTypeId,0 as  mark  from SocHarcumSchedule  join SocScheduleWithGroups  on SocHarcumSchedule.ScheduleID =SocScheduleWithGroups.ScheduleID join Lecturer on SocScheduleWithGroups.LecturerID =Lecturer.LecturerID join SubjectNew on SocHarcumSchedule.SubjectID =SubjectNew.sbjAutoId where SocHarcumSchedule.AcadYear=8 and SocScheduleWithGroups.GroupID =21630");
+$select=sqlsrv_query($conn,"Select Lecturer.lecturerid,LecturerSurname+' '+LecturerName+' '+LecturerlastName as LName, SocHarcumSchedule.SubjectID ,newSubjectName as SubjectName, SocScheduleWithGroups.ScheduleWithGroupsId,SocHarcumSchedule.ExamTypeId,0 as  mark from SocHarcumSchedule  join SocScheduleWithGroups  on SocHarcumSchedule.ScheduleID =SocScheduleWithGroups.ScheduleID join Lecturer on SocScheduleWithGroups.LecturerID =Lecturer.LecturerID join SubjectNew on SocHarcumSchedule.SubjectID =SubjectNew.sbjAutoId   where SocHarcumSchedule.AcadYear=8 and SocScheduleWithGroups.GroupID =21630");
 $result = array();
 while($data = sqlsrv_fetch_object($select)) {
-
-$result[] = $data;
+$data->quests=$resultQuest;
+$result[] = $data; 
 }
 
-$data = array("result" => count($result),"data" => $result);
+$data = array("result" => 0, "data" => $result);
 
 
 
