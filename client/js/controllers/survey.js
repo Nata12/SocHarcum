@@ -9,4 +9,7 @@ app.controller('SurveyCtrl', ['$scope', 'LecturersSvc', function($scope, Lecture
         .catch(function(error){
             console.log(error);
         });
+    $scope.InsertMarks=function() {
+        LecturersSvc.postLecturersData($scope.lecturersData.data);
+    };
 }]);
