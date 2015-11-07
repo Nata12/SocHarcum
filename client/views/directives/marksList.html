@@ -1,22 +1,15 @@
-<form>
-    <div class="col-md-6">
-        <label ng-bind="quest.QueastionText" style=" font-size: 12px;"></label>
-        <label ng-bind="quest.mark" name='mark' ></label>
+<form style="border-bottom: 1px">
+    <div class="col-md-8">
+        <h5>
+            <label ng-bind="quest.QueastionText"></label>
+            <label ng-bind="quest.mark" name='mark'></label>
+        </h5>
     </div>
-    <label class="btn btn-default">
-        <input value="1" type="radio" data-ng-model="quest.mark">1
+    <label class="btn btn-xs" ng-repeat="q in questionValues  track by $index">
+        <input value="{{questionValues[$index].value}}" type="radio"
+               data-ng-model="quest.mark">{{questionValues[$index].text}}
     </label>
-    <label class="btn btn-default " >
-        <input value="2" type="radio" data-ng-model="quest.mark">2
-    </label>
-    <label class="btn btn-default">
-        <input value="3" type="radio" data-ng-model="quest.mark">3
-    </label>
-    <label class="btn btn-default">
-        <input value="4" type="radio" data-ng-model="quest.mark">4
-    </label>
-    <label class="btn btn-default">
-        <input value="5" type="radio" data-ng-model="quest.mark">5
-    </label>
+    <textarea   ng-show="quest.NeedDescription"   data-ng-model="quest.description" ></textarea>
 </form>
+
 

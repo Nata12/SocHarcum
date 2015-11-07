@@ -5,7 +5,8 @@ app.directive('marksList', function(TemplateUrl) {
     return {
         restrict: 'E',
         scope: {
-            quest: "="
+            quest: "=",
+            questionValues:"="
         },
         templateUrl: TemplateUrl.marksList
     };

@@ -1,13 +1,63 @@
-<div id="survey" class="col-md-12">
-    <div class="main" >
-        <h2>Lecturers</h2>
-        <div id="Lecturers"  ng-repeat="lecturer in lecturersData.data">
-            <div class="day row" id="lecturer.LName">
-                <div class="low col-md-12 " >
-                    <lecturer-questions lecturer="lecturer"></lecturer-questions>
-                </div>
+<div id="survey" class="col-md-12 main">
+    <!--LoginInformation-->
+    <div class="progress">
+        <uib-progressbar value="55"></uib-progressbar>
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{pagenumber}}"
+             aria-valuemin="0" aria-valuemax="{{pagecount}}" ng-style="{width : ( pagenumber*100/pagecount + '%' ) }">
+            <span class="sr-only">Complete</span>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-default" ng-click="activatePrevious()" ng-disabled="pagenumber===0">
+            <span class="glyphicon glyphicon-arrow-left"></span> Նախորդ
+        </button>
+
+        <button type="button" class="btn btn-default" ng-click="activateNext() " ng-disabled="pagenumber===pagecount">
+            Հաջորդ <span class="glyphicon glyphicon-arrow-right"></span>
+        </button>
+    </div>
+
+    <div class="day row" ng-show="isActivePage(0)">
+        <div class="col-md-12">
+            <label ng-bind="facultyQuestions.FacultyName"></label>
+
+            <div class="col-md-12  " ng-repeat="quest in facultyQuestions.quests">
+                <marks-list quest="quest" question-values="questionValues[quest.questionType]"></marks-list>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="" ng-repeat="lecturer in lecturersData.data track by $index">
+        <div class="day row" id="$index" ng-show="isActivePage(lecturer.number)">
+            <lecturer-questions lecturer="lecturer" question-values="questionValues"></lecturer-questions>
+        </div>
+    </div>
+
+    <div class="day row text-center" ng-show="isActivePage(pagecount)">
+        <div class="col-md-12">
+            <label> Շնորհակալություն հարցմանը մասնակցելու համար</label>
+
+            <div class="md-10">
+                <textarea    placeholder="Կարծիք"  data-ng-model="facultyQuestions.description" style="width:100%;"></textarea>
+
+                <input type="submit" class="btn btn-lg btn-primary text-center  " value="Հիշել"
+                       ng-click="InsertMarks()">
             </div>
         </div>
-        <input type="submit" class="btn btn-lg btn-primary " value="Test1" ng-click="InsertMarks()">
     </div>
+
+    <div style="height:20px"></div>
+    <div class="text-center">
+        <button type="button" class="btn btn-default" ng-click="activatePrevious()" ng-disabled="pagenumber===0">
+            <span class="glyphicon glyphicon-arrow-left"></span> Նախորդ
+        </button>
+
+        <button type="button" class="btn btn-default" ng-click="activateNext() " ng-disabled="pagenumber===pagecount">
+            Հաջորդ <span class="glyphicon glyphicon-arrow-right"></span>
+        </button>
+    </div>
+
 </div>
+
