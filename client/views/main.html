@@ -5,8 +5,9 @@
     <br/>
 
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Ծածկագիր" autofocus/>
+        <input type="text" class="form-control" placeholder="Ծածկագիր" ng-model="loginParam" autofocus/>
     </div>
-    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Մուտք" ng-click="goToSurvey()">
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Մուտք" ng-click="checkLogin()">
+    <span ng-show="loginError">Error</span>
 
 </div>

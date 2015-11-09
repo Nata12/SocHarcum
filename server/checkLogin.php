@@ -1,10 +1,10 @@
 <?php
-if (isset($_POST['username']))
+if (isset($_GET['username']))
 {
     $errors = array ();
     $groupid = -1;
 
-    $username = $_POST['username'];
+    $username = $_GET['username'];
 
     if (empty ($username))
     {
@@ -42,15 +42,21 @@ if (isset($_POST['username']))
 
     if (!empty ($errors))
     {
+    $err="";
         foreach ($errors as $error)
         {
-            echo '<strong>', $error ,'</strong><br />';
+           $err=$err.'<strong>'. $error .'</strong><br />';
         }
+        $data= array("grupId" => 0, "login" => $username,"errorMessage"=>$err);
     }
     else
     {
-        header("Location:MarkForm.php?grp=".$groupid."&log=".$username."");
+
+       $data= array("groupId" => $groupid, "login" => $username,"errorMessage"=>"");
+
     }
+       header('Content-type: application/json');
+       echo json_encode($data);
 }
 
 

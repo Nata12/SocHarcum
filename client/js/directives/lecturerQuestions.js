@@ -5,8 +5,7 @@ app.directive('lecturerQuestions', function(TemplateUrl) {
     return {
         restrict: 'E',
         scope: {
-            lecturer: "=",
-            questionValues:"="
+            lecturer: "="
         },
         templateUrl: TemplateUrl.lecturerQuestions
     };

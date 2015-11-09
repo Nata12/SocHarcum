@@ -79,3 +79,10 @@ h2 {
 .last {
     margin-bottom: 100px;
 }
+
+.questiont-background_0{
+    background-color: gray;
+}
+.question-background_1{
+    background-color: yellow;
+}

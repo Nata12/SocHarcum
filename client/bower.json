@@ -9,11 +9,13 @@
   "moduleType": [],
   "license": "MIT",
   "dependencies": {
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "bootstrap": "~3.3.5"
   },
   "devDependencies": {
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
-    "jquery": "jQuery#~2.1.4"
+    "jquery": "jQuery#~2.1.4",
+    "bootstrap": "~3.3.5"
   }
 }

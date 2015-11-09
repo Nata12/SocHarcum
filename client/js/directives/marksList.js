@@ -5,9 +5,17 @@ app.directive('marksList', function(TemplateUrl) {
     return {
         restrict: 'E',
         scope: {
-            quest: "=",
-            questionValues:"="
+            quest: "="
         },
-        templateUrl: TemplateUrl.marksList
+        templateUrl: TemplateUrl.marksList,
+        link:function (scope) {
+            scope.questioncolour=function(number) {
+                if(number%2)
+                    return 'lightGray';
+                else
+                return 'white';
+            };
+        }
+
     };
 });

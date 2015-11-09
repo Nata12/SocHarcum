@@ -1,13 +1,13 @@
-<form style="border-bottom: 1px">
-    <div class="col-md-8">
+<form  ng-style="{'backgroundColor': questioncolour(quest.QuestionID)} ">
+    <div class="col-md-8" >
         <h5>
             <label ng-bind="quest.QueastionText"></label>
-            <label ng-bind="quest.mark" name='mark'></label>
+            <!--<label ng-bind="quest.mark" name='mark'></label>-->
         </h5>
     </div>
-    <label class="btn btn-xs" ng-repeat="q in questionValues  track by $index">
-        <input value="{{questionValues[$index].value}}" type="radio"
-               data-ng-model="quest.mark">{{questionValues[$index].text}}
+    <label class="btn btn-xs" ng-repeat="q in quest.questionValues  track by $index">
+        <input value="{{quest.questionValues[$index].value}}" type="radio"
+               data-ng-model="quest.mark">{{quest.questionValues[$index].text}}
     </label>
     <textarea   ng-show="quest.NeedDescription"   data-ng-model="quest.description" ></textarea>
 </form>

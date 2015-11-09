@@ -1,9 +1,9 @@
-<div class="col-md-12">
+<div class="col-md-12" ng-style="{'border': 'solid 1px'}">
     <label ng-bind="lecturer.LectName"></label>
     <label ng-bind="lecturer.SubjName"></label>
 
-    <div class="col-md-12  " id="lecturer.LectName" ng-repeat="quest in lecturer.quests">
-        <marks-list quest="quest" question-values="questionValues[quest.questionType]"></marks-list>
+    <div class="col-md-12"  ng-repeat="quest in lecturer.quests">
+        <marks-list  quest="quest"></marks-list>
     </div>
 
 </div>

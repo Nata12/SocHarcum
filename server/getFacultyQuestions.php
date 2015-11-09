@@ -8,7 +8,7 @@ function GetFacultyQuestions($groupid)
 {
     include_once('db_Connection.php');
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
+    $questionvalues=array();
     $questions = array();
     $faculty = array();
     $facultyquestions = array();
@@ -29,6 +29,21 @@ function GetFacultyQuestions($groupid)
             sqlsrv_free_stmt( $sqlquery);
         }
 
+  $sqlstr = " SELECT [questionTypeId],[value],[text] "
+                    ." FROM [dbo].[QuestionValues] "
+                    ." order by questionTypeId ";
+
+              //  $params = array ($acid);
+                 $sqlquery = sqlsrv_query( $conn, $sqlstr);
+                if( $sqlquery )
+                {
+                    while( $row = sqlsrv_fetch_object( $sqlquery))
+                    {
+                        $questionvalues[]=$row;
+                    }
+                    sqlsrv_free_stmt( $sqlquery);
+                }
+
         //----get question array-------------------
         $sqlstr = " SELECT [QuestionID],[QueastionText],[questionType],[maxmark],-1 as mark,'' as description "
             ." FROM [dbo].[Questions] "
@@ -40,7 +55,16 @@ function GetFacultyQuestions($groupid)
         {
             while( $row = sqlsrv_fetch_object( $sqlquery) )
             {
-                $questions[]=$row;
+                   $row->questionValues=array();
+                    foreach ($questionvalues as &$questValue )
+                    {
+                        if($questValue->questionTypeId===$row->questionType)
+                         {
+                                array_push( $row->questionValues,$questValue);
+                         }
+
+                    }
+                    $questions[]=$row;
             }
             sqlsrv_free_stmt( $sqlquery);
         }
