@@ -29,9 +29,9 @@
         </div>
     </div>
 
-    <div id="" ng-repeat="lecturer in lecturersData.data track by $index">
-        <div class="day row" id="$index" ng-show="isActivePage(lecturer.number)">
-            <lecturer-questions lecturer="lecturer"></lecturer-questions>
+    <div id="" ng-repeat="subject in lecturersData.data track by $index">
+        <div class="day row" id="$index" ng-show="isActivePage(subject.number)">
+            <subject-lecturers subject="subject"></subject-lecturers>
         </div>
     </div>
 

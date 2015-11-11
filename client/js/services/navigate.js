@@ -9,4 +9,7 @@ app.service('NavigateSvc', function($window, Pages) {
     this.goToSurvey = function() {
         _goToPage(Pages.survey);
     };
+    this.goToMain = function() {
+        _goToPage(Pages.main);
+    };
 })

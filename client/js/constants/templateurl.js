@@ -3,5 +3,6 @@
  */
 app.constant("TemplateUrl", {
     marksList: "views/directives/marksList.html",
-    lecturerQuestions: "views/directives/lecturerQuestions.html"
+    lecturerQuestions: "views/directives/lecturerQuestions.html",
+    subjectLecturers: "views/directives/subjectLecturers.html"
 });

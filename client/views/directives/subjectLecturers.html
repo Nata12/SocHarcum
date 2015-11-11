@@ -1,0 +1,13 @@
+<div class="col-md-12">
+    <label ng-bind="subject.SubjName"></label>
+    <label ng-bind="subject.STypeName"></label>
+    <div class="col-md-12"  ng-repeat="lecturer in subject.lect">
+
+            <label class="btn ">
+                <input value="{{lecturer.LectID}}" type="radio"
+                       data-ng-model="subject.SelectedLectID">{{lecturer.LectName}}
+            </label>
+        <lecturer-questions  lecturer="lecturer" ng-show="subject.SelectedLectID==lecturer.LectID"></lecturer-questions>
+        </div>
+    </div>
+</div>

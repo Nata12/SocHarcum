@@ -8,14 +8,14 @@ app.controller('MainCtrl', ['$scope','LoginSvc','NavigateSvc', function ($scope,
     $scope.checkLogin=function() {
         LoginSvc.checkLogin($scope.loginParam)
             .success(function (data) {
-               if(data.groupId && data.groupId!=0) {
+                if(data.groupId && data.groupId!=0) {
 
-                   NavigateSvc.goToSurvey();
-               }
-               else {
+                    NavigateSvc.goToSurvey();
+                }
+                else {
 
-                   $scope.loginError = true;
-               }
+                    $scope.loginError = true;
+                }
 
 
 
